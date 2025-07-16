@@ -37,7 +37,7 @@ export const createNote = async (req, res) => {
 export const updateNote = async (req, res) => {
   try {
     const { title, content } = req.body;
-    const updatedNote = await Note.findByIdandUpdate(
+    const updatedNote = await Note.findByIdAndUpdate(
       req.params.id,
       {
         title,
@@ -56,7 +56,7 @@ export const updateNote = async (req, res) => {
 
 export const deleteNote = async (req, res) => {
   try {
-    const deletedNote = await Note.findByIdandDelete(req.params.id);
+    const deletedNote = await Note.findByIdAndDelete(req.params.id);
     if (!deletedNote)
       return res.status(404).json({ message: "Note not found" });
     res.status(200).json({ message: "Note deleted successfully" });
